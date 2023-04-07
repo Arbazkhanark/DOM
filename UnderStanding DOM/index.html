@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding DOM</title>
+
+    <style>
+        *{
+            margin: 0px;
+        }
+
+        body{
+            background-color: bisque;
+        }
+
+        .container{
+            border: 1px solid white;
+            box-shadow: 2px 1px 10px;
+            background-color: rgb(252, 230, 203);
+            width: 40%;
+            height: 400px;
+            text-align: center;
+            padding: 40px;
+            margin: auto;
+        }
+
+        h1{
+            margin: 40px;
+        }
+
+        .btn{
+            border: 1px solid rgb(228, 192, 149);
+            height: 37px;
+            width: 120px;
+            cursor: pointer;
+            transition-duration: 0.3s;
+        }
+        .btn:hover{
+            background-color: rgb(230, 176, 95);
+            color: white;
+            border: 1px solid white;
+        }
+        
+        .inp{
+            height: 30px;
+            width: 300px;
+            outline: none;
+        }
+
+        .ans{
+            margin: 30px;
+            font-size: larger;
+            color: tomato;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Tip Calculator</h1>
+        <input class="inp" type="number" placeholder="Enter your bill">
+        <button class="btn" >Calculate</button>
+        <p class="ans"></p>
+    </div>
+
+
+    <script> 
+        let tipCalc=document.querySelector(".btn");
+        tipCalc.addEventListener("click",tip_calculate);
+        
+        
+        function tip_calculate(){
+            let bill=document.querySelector(".inp").value;
+            let tip=(bill*2)/100;
+            let res=document.querySelector(".ans");
+            res.innerHTML="Your tip is: "+tip;
+        };  
+    </script>
+
+</body>
+</html>
